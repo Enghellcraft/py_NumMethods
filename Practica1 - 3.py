@@ -49,3 +49,4 @@ print("root 5 = has none, has limits to zero")
 print("root 6 = cannot be found due to positive values for absolutes")
 print("root 7 =", r7)
 
+# math.nan to denote something that is not a number that you wish to be handled as a number. 
