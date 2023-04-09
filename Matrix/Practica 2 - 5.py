@@ -10,7 +10,10 @@ def my_lu(A):
         if my_square_matrix(A) == False:
             print("La matriz debe ser una matriz cuadrada")
         else:
-            print ("Solutions: se pueden solucionar los elementos de la matriz")
+            if my_determinant() == False:
+                print("La determinant debe ser distinta a cero")
+            else:        
+                print ("Solutions: se pueden solucionar los elementos de la matriz")
 
 # Zero on Diagonal
 def my_zero_on_diagonal(A):
@@ -26,7 +29,15 @@ def my_square_matrix(A):
         return False
     else:
         return True
-    
+
+# Determinant of a square matrix
+def my_determinant(A):
+    Aa = np.array(A)
+    det = np.linalg.det(Aa)  
+    if det == 0:
+        return False
+    else: 
+        return True
 
 # Permutation Matrix
 def my_permutation(A):
