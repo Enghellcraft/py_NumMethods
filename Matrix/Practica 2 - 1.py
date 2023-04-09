@@ -31,14 +31,22 @@ for row in range(Row):
 def my_matrix_inverse(x):
     try:
         inverse = np.linalg.inv(x)
+        # checks if invese is possible
     except np.linalg.LinAlgError:
-        # Not invertible. Skip this one.
         print("La matriz no es inversible.")
         pass
     else:
         print("La matriz es inversible.")
         print("La inversa de la matriz es: \n", inverse)
-        # continue with what you were doing
+        
+# Determinant of a square matrix this can be used instead of the check error
+def my_determinant(A):
+    Aa = np.array(A)
+    det = np.linalg.det(Aa)  
+    if det == 0:
+        return False
+    else: 
+        return True
 
 matrixA = np.matrix([[1, 0],
                     [2, 1]])
