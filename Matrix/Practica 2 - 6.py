@@ -1,0 +1,65 @@
+import scipy
+import scipy.linalg as linalg 
+import numpy as np
+
+# LU method
+def my_lu(A):
+    if my_zero_on_diagonal(A) == False:
+        return print("Algun Elemento en la diagonal es 0 y no puede resolverse")
+    else:
+        if my_square_matrix(A) == False:
+            print("La matriz debe ser una matriz cuadrada")
+        else:
+            print ("Solutions: se pueden solucionar los elementos de la matriz")
+
+# Zero on Diagonal
+def my_zero_on_diagonal(A):
+    for i in range(0,len(A) ) :
+        print(A[i][i])
+        if (A[i][i] == 0) :
+            return False
+    return True
+
+# Square Matrix
+def my_square_matrix(A):
+    if len(A) != len(A[0]) and len(set(map(len, A))) != 1:
+        return False
+    else:
+        return True
+    
+
+# Permutation Matrix
+def my_permutation(A):
+    P, L, U = scipy.linalg.lu(A)
+    print("La matriz de permutacion es: \n")
+    print(P)
+    print(L)
+    print(U)
+
+
+# Data
+matrixA = ([[1,0,0],
+            [4,1,0],
+            [7,8,1]])
+
+matrixB = ([[1,2,3],
+            [0,1,6],
+            [0,0,1]])
+
+matrixC = ([[1,0,0],
+            [0, 1, 0],
+            [0, 0, 1]])
+            
+            
+            
+# a)
+my_lu(matrixA)
+my_permutation(matrixA)
+
+# b)
+my_lu(matrixB)
+my_permutation(matrixB)
+
+# c)
+my_lu(matrixC)
+my_permutation(matrixC)
