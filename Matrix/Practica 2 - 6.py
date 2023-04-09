@@ -3,6 +3,7 @@ import scipy.linalg as linalg
 import numpy as np
 
 # LU method
+# LU method
 def my_lu(A):
     if my_zero_on_diagonal(A) == False:
         return print("Algun Elemento en la diagonal es 0 y no puede resolverse")
@@ -10,7 +11,10 @@ def my_lu(A):
         if my_square_matrix(A) == False:
             print("La matriz debe ser una matriz cuadrada")
         else:
-            print ("Solutions: se pueden solucionar los elementos de la matriz")
+            if my_determinant() == False:
+                print("La determinante debe ser distinta a cero")
+            else:        
+                print ("Solutions: se pueden solucionar los elementos de la matriz")
 
 # Zero on Diagonal
 def my_zero_on_diagonal(A):
@@ -27,7 +31,15 @@ def my_square_matrix(A):
     else:
         return True
     
-
+# Determinant of a square matrix
+def my_determinant(A):
+    Aa = np.array(A)
+    det = np.linalg.det(Aa)  
+    if det == 0:
+        return False
+    else: 
+        return True
+    
 # Permutation Matrix
 def my_permutation(A):
     P, L, U = scipy.linalg.lu(A)
