@@ -9,7 +9,7 @@ def my_lu(A, B, N):
     else:
         LU = linalg.lu_factor(A) 
         x = linalg.lu_solve(LU, B) 
-        print ("Solutions:\n",x )
+        print ("La solucion es:\n",x )
 
 # Zero on Diagonal
 def my_zero_on_diagonal(A, N):
