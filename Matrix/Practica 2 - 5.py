@@ -13,7 +13,7 @@ def my_lu(A):
             if my_determinant() == False:
                 print("La determinante debe ser distinta a cero")
             else:        
-                print ("Solutions: se pueden solucionar los elementos de la matriz")
+                print ("Se pueden solucionar los elementos de la matriz")
 
 # Zero on Diagonal
 def my_zero_on_diagonal(A):

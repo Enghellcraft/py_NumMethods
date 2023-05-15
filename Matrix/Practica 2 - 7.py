@@ -59,9 +59,9 @@ def jacobi_iteration_method(
             new_val.append(temp)
         init_val = new_val
 
-    L, D, U = [], [], []  # Inicializar la matriz LDU
-    (P, L, U) = la.lu(coefficient_matrix)
-    D =  np.diag(np.diag(U))
+    D = np.diag(np.diag(coefficient_matrix))
+    L = np.tril(coefficient_matrix, k=-1)
+    U = np.triu(coefficient_matrix, k=1)
     
     result = [float(i) for i in new_val]
     return print("El resultado, luego de ", iterations, " iteraciones, es: ", result,"\n La matriz L: \n", L,"\n La matriz D: \n", D,"\n La matriz U: \n", U,"\n")

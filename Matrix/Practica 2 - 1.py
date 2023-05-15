@@ -40,6 +40,7 @@ def my_matrix_inverse(x):
         print("La inversa de la matriz es: \n", inverse)
         
 # Determinant of a square matrix this can be used instead of the check error
+# If the determinant of the matrix is zero, then the matrix has no inverse
 def my_determinant(A):
     Aa = np.array(A)
     det = np.linalg.det(Aa)  
@@ -74,3 +75,21 @@ matrixD = np.matrix([[0],
                      [2]])
 
 my_linear_solution(matrixC, matrixD)
+
+# These are calculator methods, two other method could be: https://www.wikihow.com/Find-the-Inverse-of-a-3x3-Matrix
+# a) Transpose the matrix: (practical but takes a lot of time in larger matrices)
+#    I)  Check the determinant of the matrix, needs to be different than zero
+#   II)  Transpose the original matrix. 
+#  III)  Find the determinant of each of the 2x2 minor matrices.   
+#   IV)  Create the matrix of cofactors. Place the results of the previous step into a new matrix of cofactors 
+#        by aligning each minor matrix determinant with the corresponding position in the original matrix.
+#        When assigning signs, the first element of the first row keeps its original sign. The second element is reversed. 
+#        The third element keeps its original sign. Continue on with the rest of the matrix in this fashion. Note that the 
+#        (+) or (-) signs in the checkerboard diagram do not suggest that the final term should be positive or negative. 
+#        They are indicators of keeping (+) or reversing (-) whatever sign the number originally had.
+#    V)  Divide each term of the adjugate matrix by the determinant 
+#
+# b) Using Linear Row Reduction to Find the Inverse Matrix: (powerful for any kind o matrix but not for humans)
+#    I) Adjoin the identity matrix to the original matrix. 
+#   II) Perform linear row reduction operations. Your objective is to create the identity matrix on the left side of this 
+#       newly augmented matrix.
